@@ -42,14 +42,19 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 18),
                 ),
               );
-
-              // if data has no errors
             } else if (snapshot.hasData) {
-              // Extracting data from snapshot object
               final data = snapshot.data as WeatherModel;
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 decoration: const BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    Color.fromARGB(255, 65, 89, 224),
+                    Color.fromARGB(255, 65, 89, 224),
+                    Color.fromARGB(255, 65, 89, 224),
+                    Color.fromARGB(255, 65, 89, 224),
+                    Color(0xfff39060),
+                    Color(0xffffb56b),
+                  ], tileMode: TileMode.mirror),
                   color: Colors.black,
                 ),
                 width: double.infinity,
@@ -60,6 +65,8 @@ class _HomePageState extends State<HomePage> {
                       TextField(
                         controller: textController,
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15)),
                           hintText: 'Enter City',
                           filled: true,
                           fillColor: Color.fromARGB(255, 224, 220, 217),
@@ -95,8 +102,15 @@ class _HomePageState extends State<HomePage> {
                               style: f24Rwhitebold,
                             ),
                             height25,
+                            Image.network(
+                              "https://openweathermap.org/img/w/" +
+                                  data.icon +
+                                  ".png",
+                              width: 150,
+                              height: 150,
+                            ),
                             Text(
-                              data.desc,
+                              data.desc.toUpperCase(),
                               style: f16PW,
                             ),
                             height25,
