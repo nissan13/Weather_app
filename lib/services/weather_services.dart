@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart' as http;
-import 'package:weather_application_2/const.dart';
-import 'package:weather_application_2/weather_model.dart';
+import 'package:weather_application_2/constant/const.dart';
+import 'package:weather_application_2/model/weather_model.dart';
 
 class CallToApi {
   Future<WeatherModel> fetchWeather(String cityName) async {

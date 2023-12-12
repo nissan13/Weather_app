@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_application_2/constant.dart';
-import 'package:weather_application_2/weather_model.dart';
-import 'package:weather_application_2/weather_services.dart';
+import 'package:weather_application_2/constant/constant.dart';
+import 'package:weather_application_2/model/weather_model.dart';
+import 'package:weather_application_2/services/weather_services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,7 +34,6 @@ class _HomePageState extends State<HomePage> {
       body: FutureBuilder(
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            // If error occured
             if (snapshot.hasError) {
               return Center(
                 child: Text(
